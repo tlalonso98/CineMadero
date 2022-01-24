@@ -1,0 +1,74 @@
+/*BODY*/
+body {
+  background-image: url(/images/background/fondo.jpg);
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.titulo {
+  background-color: black;
+  border: solid 1px grey;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+  margin-top: 3rem;
+}
+
+/*HEADER*/
+nav {
+  background-color: black;
+  text-transform: uppercase;
+  height: 4rem;
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem !important;
+
+  &:hover {
+    color: rgb(143, 106, 143) !important;
+    border-bottom: solid rgb(143, 106, 143) 1px;
+  }
+}
+
+/*FOOTER*/
+footer {
+  background-color: black;
+  box-shadow: 0 -4px 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+.redSocial i {
+  color: #b6b6b6;
+  font-size: 1.2rem;
+}
+
+.fa-instagram:hover {
+  color: #c13584;
+}
+
+.fa-facebook:hover {
+  color: #3b5998;
+}
+
+.fa-linkedin-li:hover {
+  color: #0e76a8;
+}
+
+.autor {
+  color: white;
+  justify-items: center;
+  padding: 1rem 0;
+  background-color: rgb(36, 36, 36);
+
+  &__texto {
+    margin: 0;
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px black;
+  }
+}

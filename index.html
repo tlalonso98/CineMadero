@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--TÍTULO-->
+    <title>Cine Madero</title>
+    <!--FAV ICON-->
+    <link
+      rel="shortcut icon"
+      href="/images/logos/favicon.svg"
+      type="image/x-icon"
+    />
+    <!--SEO-->
+    <meta
+      name="description"
+      content="Te ofrecemos la mejor calidad, comodidad y variedad de opciones para que puedas disfrutar en las mejores salas del país. ¡Vení a mirar desde películas clásicas hasta los últimos estrenos!"
+    />
+    <meta
+      name="keywords"
+      content="cine, películas, film, estrenos, entradas, clásicos, festivales, 3d, imax, cartelera, promociones, pochoclos, hollywood"
+    />
+    <meta name="robots" content="index,follow" />
+    <!--FONT AWESOME-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!--CSS-->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!--JAVASCRIPT-->
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+
+  <body class="bg-dark">
+    <!--HEADER-->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark shadow fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="/images/logos/favicon.svg"
+              alt=""
+              width="30"
+              height="24"
+              class="d-inline-block"
+            />
+            <span class="fw-bold">Cine Madero</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNavAltMarkup"
+          >
+            <ul class="navbar-nav text-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#cartelera">Cartelera</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#candy">Candy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!--CARRUSEL DESTACADOS-->
+      <section class="container destacados">
+        <div
+          id="carousel1"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carousel1"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carousel1"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carousel1"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carousel1"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active d-flex justify-content-center">
+              <img
+                src="/images/destacados/0000001163.jpg"
+                class="d-block"
+                alt="Spiderman: sin camino a casa"
+              />
+            </div>
+            <div class="carousel-item d-flex justify-content-center">
+              <img
+                src="/images/destacados/0000001165.jpg"
+                class="d-block"
+                alt="¡Comprá nuestros productos online!"
+              />
+            </div>
+            <div class="carousel-item d-flex justify-content-center">
+              <img
+                src="/images/destacados/0000001167.jpg"
+                class="d-block"
+                alt="Matrix Resurrecciones"
+              />
+            </div>
+            <div class="carousel-item d-flex justify-content-center">
+              <img
+                src="/images/destacados/0000001172.jpg"
+                class="d-block"
+                alt="Belle"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carousel1"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carousel1"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </section>
+      <!--CARTELERA-->
+      <section class="container text-center" id="cartelera">
+        <h1 class="titulo text-light text-uppercase">Cartelera</h1>
+        <!--TARJETAS-->
+        <div class="row align-items-center tarjetas">
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/barreras.jpg" alt="Amor sin barreras" />
+            <h2 class="h6">Amor sin barreras</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/encanto.jpg" alt="Encanto" />
+            <h2 class="h6">Encanto</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img
+              src="/images/cartelera/kingsman.jpg"
+              alt="King's Man: el origen"
+            />
+            <h2 class="h6">King's Man: el origen</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/scream.jpg" alt="Scream 5" />
+            <h2 class="h6">Scream 5</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/gucci.jpg" alt="La casa Gucci" />
+            <h2 class="h6">La casa Gucci</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/sing.jpg" alt="Sing 2" />
+            <h2 class="h6">Sing 2</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/belle.jpg" alt="Belle" />
+            <h2 class="h6">Belle</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/boda.jpg" alt="Boda negra" />
+            <h2 class="h6">Boda negra</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img
+              src="/images/cartelera/clifford.jpg"
+              alt="Clifford: El gran perro rojo"
+            />
+            <h2 class="h6">Clifford: El gran perro rojo</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/g1.png" alt="El padrino" />
+            <h2 class="h6">El Padrino</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/g2.png" alt="El padrino II" />
+            <h2 class="h6">El Padrino II</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/g3.png" alt="El padrino III" />
+            <h2 class="h6">El Padrino III</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/cartelera/rifkins.jpg" alt="Rifkin's Festival" />
+            <h2 class="h6">Rifkin's Festival</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img
+              src="/images/cartelera/matrix.jpg"
+              alt="Matrix Resurrecciones"
+            />
+            <h2 class="h6">Matrix Resurrecciones</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img
+              src="/images/cartelera/spiderman.jpg"
+              alt="Spiderman: sin camino a casa"
+            />
+            <h2 class="h6">Spiderman: sin camino a casa</h2>
+          </div>
+        </div>
+      </section>
+      <!--CANDY-->
+      <section class="container text-center" id="candy">
+        <h2 class="titulo text-light text-uppercase">Comestibles</h1>
+        <!--TARJETAS-->
+        <div class="row align-items-center tarjetas">
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/candy/combo.png" alt="Combo individual" />
+            <h2 class="h6">Combo individual</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/candy/nachos.png" alt="Combo nachos" />
+            <h2 class="h6">Combo nachos</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/candy/pareja.png" alt="Combo pareja" />
+            <h2 class="h6">Combo pareja</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/candy/papas.png" alt="Papas fritas" />
+            <h2 class="h6">Papas fritas</h2>
+          </div>
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+            <img src="/images/candy/sugus.png" alt="Sugus confitados" />
+            <h2 class="h6">Sugus confitados</h2>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--FOOTER-->
+    <footer>
+      <div class="container">
+        <div class="text-center redSocial py-4">
+          <a href="#">
+            <i class="px-3 fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="px-3 fab fa-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="px-3 fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center py-2 autor">
+        <p class="autor__texto">
+          © Copyright 2022 - Cine Madero | Creado por Tomás L. Alonso
+        </p>
+      </div>
+    </footer>
+    <!--JavaScript Bundle with Popper-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
