@@ -41,9 +41,7 @@ console.log("Subtotal: $" + sumarProductos(ticket4d, 2, comboPareja, 1));
 
 // CÓDIGO DE DESCUENTO
 
-let codigoDescuento = prompt(
-  "Si posee un código de descuento, ingréselo aquí. Caso contrario, deje esta celda vacía."
-);
+let codigoDescuento = " ";
 while (codigoDescuento == " ") {
   codigoDescuento = prompt(
     "Si posee un código de descuento, ingréselo aquí. Caso contrario, deje esta celda vacía."
