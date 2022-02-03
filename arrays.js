@@ -9,7 +9,7 @@ class Pelicula {
     this.nombre = nombre;
     this.idioma = idioma;
     this.funcion = funcion;
-    this.sala = sala;
+    this.precio = precio;
   }
   /*  compraExitosa() {
     console.log(
