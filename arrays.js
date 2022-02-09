@@ -1,15 +1,23 @@
+// VARIABLE PRECIOS
+
+let valor2D = 700;
+let valor3D = 800;
+let valor4D = 1000;
+
 // ARRAYS VACÍOS
+
 let peliculas = [];
 let candy = [];
 let carrito = [];
 
 // OBJETO PELÍCULA
+
 class Pelicula {
-  constructor(nombre, idioma, funcion, sala) {
+  constructor(nombre, precio, idioma, funcion) {
     this.nombre = nombre;
+    this.precio = precio;
     this.idioma = idioma;
     this.funcion = funcion;
-    this.precio = precio;
   }
   /*  compraExitosa() {
     console.log(
@@ -22,111 +30,167 @@ class Pelicula {
   }*/
 }
 
-let encanto1 = new Pelicula("Encanto", "Doblada", "Lunes 19:00", "2D");
-let encanto2 = new Pelicula("Encanto", "Doblada", "Miércoles 19:00", "2D");
-let encanto3 = new Pelicula("Encanto", "Doblada", "Jueves 14:00", "3D");
-let encanto4 = new Pelicula("Encanto", "Doblada", "Viernes 19:00", "2D");
-let encanto5 = new Pelicula("Encanto", "Doblada", "Sabado 14:00", "2D");
-let encanto6 = new Pelicula("Encanto", "Doblada", "Domingo 14:00", "3D");
-let encanto7 = new Pelicula("Encanto", "Doblada", "Domingo 19:00", "2D");
+let encanto1 = new Pelicula("Encanto", valor2D, "Doblada", "Lunes 19:00");
+let encanto2 = new Pelicula("Encanto", valor2D, "Doblada", "Miércoles 19:00");
+let encanto3 = new Pelicula("Encanto", valor3D, "Doblada", "Jueves 14:00");
+let encanto4 = new Pelicula("Encanto", valor2D, "Doblada", "Viernes 19:00");
+let encanto5 = new Pelicula("Encanto", valor2D, "Doblada", "Sabado 14:00");
+let encanto6 = new Pelicula("Encanto", valor3D, "Doblada", "Domingo 14:00");
+let encanto7 = new Pelicula("Encanto", valor2D, "Doblada", "Domingo 19:00");
 
-let scream1 = new Pelicula("Scream 5", "Subitulada", "Jueves 22:00", "2D");
-let scream2 = new Pelicula("Scream 5", "Doblada", "Viernes 21:00", "2D");
-let scream3 = new Pelicula("Scream 5", "Doblada", "Sabado 20:00", "2D");
-let scream4 = new Pelicula("Scream 5", "Subitulada", "Sabado 23:00", "2D");
+let scream1 = new Pelicula("Scream 5", valor2D, "Subtitulada", "Jueves 22:00");
+let scream2 = new Pelicula("Scream 5", valor2D, "Doblada", "Viernes 21:00");
+let scream3 = new Pelicula("Scream 5", valor2D, "Doblada", "Sabado 20:00");
+let scream4 = new Pelicula("Scream 5", valor2D, "Subtitulada", "Sabado 23:00");
 
-let gucci1 = new Pelicula("La casa Gucci", "Subitulada", "Martes 19:00", "2D");
-let gucci2 = new Pelicula("La casa Gucci", "Subitulada", "Jueves 21:00", "2D");
-let gucci3 = new Pelicula("La casa Gucci", "Subitulada", "Viernes 21:00", "2D");
-let gucci4 = new Pelicula("La casa Gucci", "Subitulada", "Sabado 21:00", "2D");
-let gucci5 = new Pelicula("La casa Gucci", "Subitulada", "Domingo 18:00", "2D");
-
-let sing1 = new Pelicula("Sing 2", "Doblada", "Martes 19:00", "2D");
-let sing2 = new Pelicula("Sing 2", "Doblada", "Jueves 19:00", "2D");
-let sing3 = new Pelicula("Sing 2", "Doblada", "Viernes 17:00", "2D");
-
-let belle1 = new Pelicula("Belle", "Doblada", "Lunes 17:00", "2D");
-let belle2 = new Pelicula("Belle", "Subitulada", "Miércoles 20:00", "2D");
-let belle3 = new Pelicula("Belle", "Doblada", "Viernes 20:00", "2D");
-
-let bodaNegra1 = new Pelicula("Boda negra", "Subitulada", "Jueves 23:00", "2D");
-let bodaNegra2 = new Pelicula(
-  "Boda negra",
-  "Subitulada",
-  "Viernes 23:00",
-  "2D"
+let gucci1 = new Pelicula(
+  "La casa Gucci",
+  valor2D,
+  "Subtitulada",
+  "Martes 19:00"
+);
+let gucci2 = new Pelicula(
+  "La casa Gucci",
+  valor2D,
+  "Subtitulada",
+  "Jueves 21:00"
+);
+let gucci3 = new Pelicula(
+  "La casa Gucci",
+  valor2D,
+  "Subtitulada",
+  "Viernes 21:00"
+);
+let gucci4 = new Pelicula(
+  "La casa Gucci",
+  valor2D,
+  "Subtitulada",
+  "Sabado 21:00"
+);
+let gucci5 = new Pelicula(
+  "La casa Gucci",
+  valor2D,
+  "Subtitulada",
+  "Domingo 18:00"
 );
 
-let padrino1 = new Pelicula("El Padrino", "Subitulada", "Jueves 14:00", "2D");
-let padrino2 = new Pelicula("El Padrino", "Subitulada", "Viernes 22:00", "2D");
-let padrino3 = new Pelicula("El Padrino", "Subitulada", "Domingo 21:00", "2D");
+let sing1 = new Pelicula("Sing 2", valor2D, "Doblada", "Martes 19:00");
+let sing2 = new Pelicula("Sing 2", valor2D, "Doblada", "Jueves 19:00");
+let sing3 = new Pelicula("Sing 2", valor2D, "Doblada", "Viernes 17:00");
+
+let belle1 = new Pelicula("Belle", valor2D, "Doblada", "Lunes 17:00");
+let belle2 = new Pelicula("Belle", valor2D, "Subtitulada", "Miércoles 20:00");
+let belle3 = new Pelicula("Belle", valor2D, "Doblada", "Viernes 20:00");
+
+let bodaNegra1 = new Pelicula(
+  "Boda negra",
+  valor2D,
+  "Subtitulada",
+  "Jueves 23:00"
+);
+let bodaNegra2 = new Pelicula(
+  "Boda negra",
+  valor2D,
+  "Subtitulada",
+  "Viernes 23:00"
+);
+
+let padrino1 = new Pelicula(
+  "El Padrino",
+  valor2D,
+  "Subtitulada",
+  "Jueves 14:00"
+);
+let padrino2 = new Pelicula(
+  "El Padrino",
+  valor2D,
+  "Subtitulada",
+  "Viernes 22:00"
+);
+let padrino3 = new Pelicula(
+  "El Padrino",
+  valor2D,
+  "Subtitulada",
+  "Domingo 21:00"
+);
 
 let padrinoII1 = new Pelicula(
   "El Padrino II",
-  "Subitulada",
-  "Jueves 18:00",
-  "2D"
+  valor2D,
+  "Subtitulada",
+  "Jueves 18:00"
 );
 let padrinoII2 = new Pelicula(
   "El Padrino II",
-  "Subitulada",
-  "Sabado 22:00",
-  "2D"
+  valor2D,
+  "Subtitulada",
+  "Sabado 22:00"
 );
 let padrinoII3 = new Pelicula(
   "El Padrino II",
-  "Subitulada",
-  "Domingo 20:00",
-  "2D"
+  valor2D,
+  "Subtitulada",
+  "Domingo 20:00"
 );
 
 let padrinoIII1 = new Pelicula(
   "El Padrino III",
-  "Subitulada",
-  "Jueves 22:00",
-  "2D"
+  valor2D,
+  "Subtitulada",
+  "Jueves 22:00"
 );
 let padrinoIII2 = new Pelicula(
   "El Padrino III",
-  "Subitulada",
-  "Domingo 22:00",
-  "2D"
+  valor2D,
+  "Subtitulada",
+  "Domingo 22:00"
 );
 
-let matrix1 = new Pelicula("Matrix", "Subitulada", "Miércoles 20:00", "2D");
-let matrix2 = new Pelicula("Matrix", "Doblada", "Jueves 22:00", "2D");
-let matrix3 = new Pelicula("Matrix", "Doblada", "Viernes 20:00", "2D");
-let matrix4 = new Pelicula("Matrix", "Subitulada", "Viernes 23:00", "2D");
-let matrix5 = new Pelicula("Matrix", "Subitulada", "Sabado 21:00", "2D");
+let matrix1 = new Pelicula("Matrix", valor2D, "Subtitulada", "Miércoles 20:00");
+let matrix2 = new Pelicula("Matrix", valor2D, "Doblada", "Jueves 22:00");
+let matrix3 = new Pelicula("Matrix", valor2D, "Doblada", "Viernes 20:00");
+let matrix4 = new Pelicula("Matrix", valor3D, "Subtitulada", "Viernes 23:00");
+let matrix5 = new Pelicula("Matrix", valor4D, "Subtitulada", "Sabado 21:00");
 
-let spiderman1 = new Pelicula("Spiderman", "Doblada", "Lunes 19:00", "2D");
+let spiderman1 = new Pelicula("Spiderman", valor2D, "Doblada", "Lunes 19:00");
 let spiderman2 = new Pelicula(
   "Spiderman",
-  "Subitulada",
-  "Miércoles 20:00",
-  "2D"
+  valor2D,
+  "Subtitulada",
+  "Miércoles 20:00"
 );
-let spiderman3 = new Pelicula("Spiderman", "Doblada", "Jueves 18:00", "3D");
-let spiderman4 = new Pelicula("Spiderman", "Subitulada", "Viernes 19:00", "2D");
-let spiderman5 = new Pelicula("Spiderman", "Doblada", "Sabado 16:00", "2D");
-let spiderman6 = new Pelicula("Spiderman", "Subitulada", "Sabado 22:00", "3D");
-let spiderman7 = new Pelicula("Spiderman", "Doblada", "Domingo 14:00", "3D");
-let spiderman8 = new Pelicula("Spiderman", "Doblada", "Domingo 19:00", "2D");
+let spiderman3 = new Pelicula("Spiderman", valor3D, "Doblada", "Jueves 18:00");
+let spiderman4 = new Pelicula(
+  "Spiderman",
+  valor2D,
+  "Subtitulada",
+  "Viernes 19:00"
+);
+let spiderman5 = new Pelicula("Spiderman", valor2D, "Doblada", "Sabado 16:00");
+let spiderman6 = new Pelicula(
+  "Spiderman",
+  valor3D,
+  "Subtitulada",
+  "Sabado 22:00"
+);
+let spiderman7 = new Pelicula("Spiderman", valor3D, "Doblada", "Domingo 14:00");
+let spiderman8 = new Pelicula("Spiderman", valor4D, "Doblada", "Domingo 19:00");
 
 // OBJETO CANDY
 
 class Candy {
-  constructor(nombre, precio) {
+  constructor(nombre, precio, id) {
     this.nombre = nombre;
     this.precio = precio;
+    this.id = id;
   }
 }
 
-let comboIndividual = new Candy("Combo Individual", 600);
-let comboNachos = new Candy("Combo Nachos", 750);
-let comboPareja = new Candy("Combo Pareja", 1100);
-let papas = new Candy("Papas fritas", 300);
-let sugus = new Candy("Sugus confitados", 150);
+let comboIndividual = new Candy("Combo Individual", 600, 0);
+let comboNachos = new Candy("Combo Nachos", 750, 1);
+let comboPareja = new Candy("Combo Pareja", 1100, 2);
+let papas = new Candy("Papas fritas", 300, 3);
+let sugus = new Candy("Sugus confitados", 150, 4);
 
 // PUSHEO DE ARRAYS
 

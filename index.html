@@ -65,15 +65,12 @@
           >
             <ul class="navbar-nav text-center">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
+                <a class="nav-link active" aria-current="page" href="#"
                   >Inicio</a
                 >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#cartelera">Cartelera</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#candy">Candy</a>
               </li>
             </ul>
           </div>
@@ -167,10 +164,10 @@
           </button>
         </div>
       </section>
+
       <!--CARTELERA-->
       <section class="container text-center" id="cartelera">
         <h1 class="titulo text-light text-uppercase">Cartelera</h1>
-        <!--TARJETAS-->
         <div class="row align-items-center tarjetas">
           <div class="col-xxl-3 col-lg-4 col-sm-6">
             <img src="images/cartelera/encanto.jpg" alt="Encanto" />
@@ -224,33 +221,55 @@
           </div>
         </div>
       </section>
-      <!--CANDY-->
-      <section class="container text-center" id="candy">
-        <h2 class="titulo text-light text-uppercase">Comestibles</h2>
-        <!--TARJETAS-->
-        <div class="row align-items-center tarjetas">
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/candy/combo.png" alt="Combo individual" />
-            <h2 class="h6">Combo individual</h2>
+
+      <!--PROCESO DE COMPRA-->
+      <section class="container text-center">
+        <h2 class="titulo text-light text-uppercase">Realice su compra</h2>
+        <div class="formulario text-white mt-4 border p-3 rounded-5">
+          <!--Seleccionar película-->
+          <div>
+            <div class="w-50 form-floating my-4 m-auto">
+              <input
+                id="seleccionarPelicula"
+                type="text"
+                class="form-control bg-dark text-light"
+                placeholder="Película"
+                required
+              />
+              <label for="floatingInput">Seleccione la película</label>
+            </div>
+            <button
+              onclick="elegirPelicula()"
+              type="button"
+              class="btn btn-dark border-light px-5 shadow"
+            >
+              Seleccionar
+            </button>
           </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/candy/nachos.png" alt="Combo nachos" />
-            <h2 class="h6">Combo nachos</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/candy/pareja.png" alt="Combo pareja" />
-            <h2 class="h6">Combo pareja</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/candy/papas.png" alt="Papas fritas" />
-            <h2 class="h6">Papas fritas</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/candy/sugus.png" alt="Sugus confitados" />
-            <h2 class="h6">Sugus confitados</h2>
+          <!--Seleccionar función-->
+          <div class="w-50 m-auto">
+            <select
+              id="seleccionarFuncion"
+              class="form-select bg-dark my-4 py-3 text-light"
+              placeholder="Función"
+              required
+            ></select>
+            <button
+              onclick="elegirFuncion()"
+              type="button"
+              class="btn btn-dark border-light px-5 shadow"
+              value="Aceptar"
+            >
+              Seleccionar
+            </button>
           </div>
         </div>
       </section>
+
+      <!--CANDY (Se carga por JS una vez seleccionada la función)-->
+      <section class="container text-center" id="candy"></section>
+      <!--CARRITO-->
+      <section class="container text-center" id="carrito"></section>
     </main>
     <!--FOOTER-->
     <footer>

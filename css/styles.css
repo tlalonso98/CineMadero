@@ -11121,7 +11121,7 @@ textarea.form-control-lg {
 }
 /*BODY*/
 body {
-  background-image: url(/images/background/fondo.jpg);
+  background-image: url(../images/background/fondo.jpg);
   background-attachment: fixed;
 }
 
@@ -11175,7 +11175,7 @@ footer {
   color: #3b5998;
 }
 
-.fa-linkedin-li:hover {
+.fa-linkedin-in:hover {
   color: #0e76a8;
 }
 
@@ -11217,6 +11217,12 @@ footer {
   background-color: black;
   border: solid 0.5px grey;
   box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+}
+
+#carrito {
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=styles.css.map */
