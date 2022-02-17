@@ -1,17 +1,23 @@
 ////////////////////// VARIABLES GLOBALES
 let subtotal = 0;
 
-////////////////////// SELECCIONAR PELÍCULA (Evento HTML)
 let peliculaSeleccionada = [];
 let seleccionarPelicula = "";
 let funcionElegida = "";
 
+// MANTENER CARRITO EN LOCAL STORAGE
+function guardarCarrito() {
+  localStorage.setItem("carritoGuardado", JSON.stringify(carrito));
+}
+
+//////////////////// SELECCIONAR PELÍCULA (Evento HTML)
 function elegirPelicula() {
+  //peliculaSeleccionada.splice(0, 5); //no funciona de ninguna de las dos maneras
+  //peliculaSeleccionada = []; //no se como vaciar este array o evitar que filter cree uno nuevo
   let hacerBreak = false;
   let seleccionarPelicula = document.getElementById(
     "seleccionarPelicula"
   ).value;
-
   for (let i = 0; i < peliculas.length; i++) {
     if (seleccionarPelicula == peliculas[i].nombre) {
       peliculaSeleccionada = peliculas.filter(
@@ -29,6 +35,7 @@ function elegirPelicula() {
   if (hacerBreak == false) {
     alert("La película seleccionada no se encuentra disponible.");
   }
+  return peliculaSeleccionada;
 }
 
 ////////////////////// SELECCIONAR FUNCIÓN + MOSTRAR COMESTIBLES (Ejecutable con evento en HTML)
@@ -48,38 +55,7 @@ function elegirFuncion() {
         funcionElegida.funcion +
         ". ¡Acompáñalo con los productos de nuestra tienda!"
     );
-    //Código HTML de la tienda Candy
-    document.getElementById("candy").innerHTML = `      
-    <h2 class="titulo text-light text-uppercase">Comestibles</h2>
-    <div class="row align-items-center tarjetas">
-      <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy0()" src="images/candy/combo.png" alt="Combo individual id="0" />
-        <h2 class="h6">Combo individual</h2>
-      </div>
-      <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy1()" src="images/candy/nachos.png" alt="Combo nachos" id="1" />
-        <h2 class="h6">Combo nachos</h2>
-      </div>
-      <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy2()" src="images/candy/pareja.png" alt="Combo pareja" id="2" />
-        <h2 class="h6">Combo pareja</h2>
-      </div>
-      <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy3()" src="images/candy/papas.png" alt="Papas fritas" id="3"/>
-        <h2 class="h6">Papas fritas</h2>
-      </div>
-      <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy4()" src="images/candy/sugus.png" alt="Sugus confitados" id="4" />
-        <h2 class="h6">Sugus confitados</h2>
-      </div>
-    </div>
-    <button
-    onclick="sumarCarrito()"
-    type="button"
-    class="btn btn-dark border-light px-5 my-4 shadow"
-  >
-    Finalizar compra
-  </button>`;
+    mostrarCandy();
   }
 }
 
@@ -102,6 +78,7 @@ function agregarCandy4() {
 
 ////////////////////// MOSTRAR PRODUCTOS DEL CARRITO EN EL DOCUMENTO
 function mostrarCarrito() {
+  document.getElementById("carrito").innerHTML = "";
   for (const producto of carrito) {
     document.getElementById("carrito").innerHTML =
       document.getElementById("carrito").innerHTML +
@@ -112,69 +89,45 @@ function mostrarCarrito() {
   document.getElementById("carrito").innerHTML =
     document.getElementById("carrito").innerHTML +
     `<h4>Subtotal: $${subtotal}</h4>`;
+
+  document.getElementById("vaciarCarrito").innerHTML = `<button
+    onclick="vaciarCarrito()"
+    type="button"
+    class="btn btn-danger border-light px-5 mb-3 shadow"
+    value="Vaciar"
+  >
+    Vaciar carrito
+  </button>`;
 }
 
-////////////////////// SUMAR CARRITO
+////////////////////// SUMAR CARRITO (Evento HTML)
 function sumarCarrito() {
+  subtotal = 0;
   for (let i = 0; i < carrito.length; i++) {
     subtotal = subtotal + carrito[i].precio;
   }
   mostrarCarrito();
+  guardarCarrito();
   return subtotal;
 }
 
-/////////////////////// LO DE ACÁ ABAJO ES VIEJO. LO DEJO COMENTADO POR SI LO REUTILIZO DESPUÉS
+////////////////////// REVISAR SI HAY COSAS EN EL CARRITO Y MOSTRARLAS AL USUARIO
+if (localStorage.getItem("carritoGuardado")) {
+  let carritoRecuperado = JSON.parse(localStorage.getItem("carritoGuardado"));
 
-// MENSAJE DE BIENVENIDA
-/*function bienvenida(username, maderoPlus) {
-  let mensajeBienvenida = "";
-  if (maderoPlus == true) {
-    mensajeBienvenida =
-      "Bienvenido de nuevo @" +
-      username +
-      ". ¡Continúa accediendo a los mejores beneficios!";
-  } else {
-    mensajeBienvenida =
-      "Bienvenido @" + username + ". ¡Mirá los estrenos de esta semana!";
+  for (let i = 0; i < carritoRecuperado.length; i++) {
+    carrito.push(carritoRecuperado[i]);
   }
-  return mensajeBienvenida;
+  mostrarCandy();
+  sumarCarrito();
 }
 
-username = prompt("Ingresa tu nombre de usuario");
-
-console.log(bienvenida(username, true));
-console.log(bienvenida(username, false));
-
-// CÓDIGO DE DESCUENTO
-let codigoDescuento = " ";
-while (codigoDescuento == " ") {
-  codigoDescuento = prompt(
-    "Ingrese su código de descuento. Si no tiene uno, deje esta celda vacía."
-  );
+////////////////////// VACIAR CARRITO
+function vaciarCarrito() {
+  carrito = [];
+  console.log(carrito);
+  guardarCarrito();
+  sumarCarrito();
+  document.getElementById("carrito").innerHTML = "";
+  document.getElementById("vaciarCarrito").innerHTML = "";
 }
-if (codigoDescuento != "") {
-  codigoDescuento = true;
-} else {
-  codigoDescuento = false;
-}
-
-// DESCUENTO MADERO +
-function aplicarDescuento(subtotal, maderoPlus, codigoDescuento) {
-  if (maderoPlus == true) {
-    total = subtotal - 0.2 * subtotal;
-  } else if (codigoDescuento == true) {
-    total = subtotal - 0.1 * subtotal;
-  } else {
-    total = subtotal;
-  }
-  return total;
-}
-
-console.log(
-  "Total Madero+: $" + aplicarDescuento(subtotal, true, codigoDescuento)
-);
-
-console.log(
-  "Total con código de descuento: $" +
-    aplicarDescuento(subtotal, false, codigoDescuento)
-);*/

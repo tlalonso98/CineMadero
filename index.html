@@ -163,6 +163,9 @@
             <span class="visually-hidden">Siguiente</span>
           </button>
         </div>
+        <div class="text-center text-light">
+          <p>¡Volviste! Olvidaste algunas cosas en el carrito</p>
+        </div>
       </section>
 
       <!--CARTELERA-->
@@ -269,7 +272,10 @@
       <!--CANDY (Se carga por JS una vez seleccionada la función)-->
       <section class="container text-center" id="candy"></section>
       <!--CARRITO-->
-      <section class="container text-center" id="carrito"></section>
+      <section class="container text-center">
+        <div id="carrito"></div>
+        <div id="vaciarCarrito"></div>
+      </section>
     </main>
     <!--FOOTER-->
     <footer>
@@ -299,6 +305,7 @@
       crossorigin="anonymous"
     ></script>
     <!--JAVASCRIPT-->
+    <script type="text/javascript" src="funcionesSecundarias.js"></script>
     <script type="text/javascript" src="arrays.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </body>
