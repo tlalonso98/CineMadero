@@ -15,6 +15,8 @@ function elegirPelicula() {
   //peliculaSeleccionada.splice(0, 5); //no funciona de ninguna de las dos maneras
   //peliculaSeleccionada = []; //no se como vaciar este array o evitar que filter cree uno nuevo
   let hacerBreak = false;
+  peliculaSeleccionada = [];
+  document.getElementById("seleccionarFuncion").innerHTML = "";
   let seleccionarPelicula = document.getElementById(
     "seleccionarPelicula"
   ).value;
@@ -33,7 +35,17 @@ function elegirPelicula() {
     }
   }
   if (hacerBreak == false) {
-    alert("La película seleccionada no se encuentra disponible.");
+    Toastify({
+      text: "La película seleccionada no se encuentra disponible.",
+      style: {
+        background: "darkred",
+      },
+      duration: 3000,
+      offset: {
+        x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
   }
   return peliculaSeleccionada;
 }
@@ -45,35 +57,46 @@ function elegirFuncion() {
     (pelicula) => pelicula.funcion == seleccionarFuncion
   );
   if (funcionElegida == undefined) {
-    alert("La función no se encuentra disponible.");
+    Toastify({
+      text: "La función no se encuentra disponible.",
+      style: {
+        background: "darkred",
+      },
+      duration: 3000,
+      offset: {
+        x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
   } else {
-    carrito.push(funcionElegida);
-    alert(
-      "Seleccionaste la función de " +
+    if (!carrito[0]?.id) {
+      carrito.shift();
+    }
+    carrito = [funcionElegida, ...carrito];
+    Toastify({
+      text:
+        "Seleccionaste la función de " +
         funcionElegida.nombre +
         " para el " +
         funcionElegida.funcion +
-        ". ¡Acompáñalo con los productos de nuestra tienda!"
-    );
+        ". ¡Acompáñalo con los productos de nuestra tienda!",
+      style: {
+        background: "green",
+      },
+      duration: 3000,
+      offset: {
+        x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
     mostrarCandy();
   }
 }
 
 ////////////////////// AGREGAR COMESTIBLES AL CARRITO. Supongo que hay manera de hacer de manera más automáticas (la misma función para cada producto sin repetir) pero no se me ocurrió cómo.
-function agregarCandy0() {
-  carrito.push(candy[0]);
-}
-function agregarCandy1() {
-  carrito.push(candy[1]);
-}
-function agregarCandy2() {
-  carrito.push(candy[2]);
-}
-function agregarCandy3() {
-  carrito.push(candy[3]);
-}
-function agregarCandy4() {
-  carrito.push(candy[4]);
+function agregarCandy(i) {
+  carrito.push(candy[i]);
+  sumarCarrito();
 }
 
 ////////////////////// MOSTRAR PRODUCTOS DEL CARRITO EN EL DOCUMENTO
@@ -108,7 +131,7 @@ function sumarCarrito() {
   }
   mostrarCarrito();
   guardarCarrito();
-  return subtotal;
+  //  return subtotal;
 }
 
 ////////////////////// REVISAR SI HAY COSAS EN EL CARRITO Y MOSTRARLAS AL USUARIO
@@ -125,7 +148,6 @@ if (localStorage.getItem("carritoGuardado")) {
 ////////////////////// VACIAR CARRITO
 function vaciarCarrito() {
   carrito = [];
-  console.log(carrito);
   guardarCarrito();
   sumarCarrito();
   document.getElementById("carrito").innerHTML = "";

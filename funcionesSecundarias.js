@@ -1,27 +1,28 @@
 // MOSTRAR TIENDA DE COMESTIBLES EN EL DOM (Se activa con evento o si teníamos artículos en carrito)
 
 function mostrarCandy() {
+  //hacer dinámico a partir de línea 7
   document.getElementById("candy").innerHTML = `      
     <h2 class="titulo text-light text-uppercase">Agregue sus comestibles</h2>
     <div class="row align-items-center tarjetas">
-      <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy0()" src="images/candy/combo.png" alt="Combo individual id="0" />
+          <div class="col-xxl-3 col-lg-4 col-sm-6">
+        <img style="cursor:pointer;" onclick="agregarCandy(1)" src="images/candy/combo.png" alt="Combo individual id="0" />
         <h2 class="h6">Combo individual</h2>
       </div>
       <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy1()" src="images/candy/nachos.png" alt="Combo nachos" id="1" />
+        <img onclick="agregarCandy(2)" src="images/candy/nachos.png" alt="Combo nachos" id="1" />
         <h2 class="h6">Combo nachos</h2>
       </div>
       <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy2()" src="images/candy/pareja.png" alt="Combo pareja" id="2" />
+        <img onclick="agregarCandy(3)" src="images/candy/pareja.png" alt="Combo pareja" id="2" />
         <h2 class="h6">Combo pareja</h2>
       </div>
       <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy3()" src="images/candy/papas.png" alt="Papas fritas" id="3"/>
+        <img onclick="agregarCandy(4)" src="images/candy/papas.png" alt="Papas fritas" id="3"/>
         <h2 class="h6">Papas fritas</h2>
       </div>
       <div class="col-xxl-3 col-lg-4 col-sm-6">
-        <img onclick="agregarCandy4()" src="images/candy/sugus.png" alt="Sugus confitados" id="4" />
+        <img onclick="agregarCandy(5)" src="images/candy/sugus.png" alt="Sugus confitados" id="4" />
         <h2 class="h6">Sugus confitados</h2>
       </div>
     </div>
