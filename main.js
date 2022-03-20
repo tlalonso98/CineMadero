@@ -134,7 +134,6 @@ function vaciarCarrito() {
 function comprobarStorage() {
   if (localStorage.getItem("carritoGuardado")) {
     let carritoRecuperado = JSON.parse(localStorage.getItem("carritoGuardado"));
-
     for (let i = 0; i < carritoRecuperado.length; i++) {
       carrito.push(carritoRecuperado[i]);
     }

@@ -2,7 +2,7 @@
 async function cargarCartelera() {
   for (let i = 0; i < peliUnica.length; i++) {
     const resp = await fetch(
-      "http://www.omdbapi.com/?i=" + peliUnica[i].imdbId + "&apikey=5eea0be4"
+      "https://www.omdbapi.com/?i=" + peliUnica[i].imdbId + "&apikey=5eea0be4"
     );
     const OMDB = await resp.json();
     document.getElementById("cartelera").innerHTML =
