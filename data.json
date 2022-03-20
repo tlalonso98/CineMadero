@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Combo Individual",
+    "precio": 600,
+    "id": 0,
+    "imagen": "images/candy/1.png"
+  },
+  {
+    "nombre": "Combo Nachos",
+    "precio": 750,
+    "id": 1,
+    "imagen": "images/candy/2.png"
+  },
+  {
+    "nombre": "Combo Pareja",
+    "precio": 1100,
+    "id": 2,
+    "imagen": "images/candy/3.png"
+  },
+  {
+    "nombre": "Papas fritas",
+    "precio": 300,
+    "id": 3,
+    "imagen": "images/candy/4.png"
+  },
+  {
+    "nombre": "Sugus confitados",
+    "precio": 150,
+    "id": 4,
+    "imagen": "images/candy/5.png"
+  }
+]

@@ -1,113 +1,439 @@
-// VARIABLE GLOBAL DE LUXON
-const DateTime = luxon.DateTime;
-const hoy = DateTime.now();
-console.log(hoy.toLocaleString(DateTime.DATETIME_MED));
-
-// VARIABLE PRECIOS
-
-let valor2D = 700;
-let valor3D = 800;
-let valor4D = 1000;
-
-// ARRAYS VACÍOS
-
+//////////////////// ARRAYS VACÍOS
 let peliculas = [];
 let candy = [];
 let carrito = [];
 
-// OBJETO PELÍCULA
+//////////////////// OBJETO PELÍCULA
 
 class Pelicula {
-  constructor(nombre, precio, idioma, funcion) {
+  constructor(nombre, precio, sala, idioma, funcion, imdbId, poster) {
     this.nombre = nombre;
     this.precio = precio;
+    this.sala = sala;
     this.idioma = idioma;
     this.funcion = funcion;
+    this.imdbId = imdbId;
+    this.poster = poster;
   }
-  /*  compraExitosa() {
-    console.log(
-      "Tus entradas de '" +
-        this.nombre +
-        "' para el " +
-        this.funcion +
-        " han sido reservadas con éxito."
-    );
-  }*/
 }
 
-// ARRAY DE PELÍCULAS
+//////////////////// ARRAY DE PELÍCULAS CON SU RESPECTIVA FUNCIÓN
 
 peliculas = [
   new Pelicula(
     "Encanto",
-    valor2D,
+    700,
+    "2D",
     "Doblada",
-    hoy.toLocaleString(DateTime.DATETIME_MED)
+    "Lunes 15:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
   ),
-  new Pelicula("Encanto", valor2D, "Doblada", "Miércoles 19:00"),
-  new Pelicula("Encanto", valor3D, "Doblada", "Jueves 14:00"),
-  new Pelicula("Encanto", valor2D, "Doblada", "Viernes 19:00"),
-  new Pelicula("Encanto", valor2D, "Doblada", "Sabado 14:00"),
-  new Pelicula("Encanto", valor3D, "Doblada", "Domingo 14:00"),
-  new Pelicula("Encanto", valor2D, "Doblada", "Domingo 19:00"),
-  new Pelicula("Scream 5", valor2D, "Subtitulada", "Jueves 22:00"),
-  new Pelicula("Scream 5", valor2D, "Doblada", "Viernes 21:00"),
-  new Pelicula("Scream 5", valor2D, "Doblada", "Sabado 20:00"),
-  new Pelicula("Scream 5", valor2D, "Subtitulada", "Sabado 23:00"),
-  new Pelicula("La casa Gucci", valor2D, "Subtitulada", "Martes 19:00"),
-  new Pelicula("La casa Gucci", valor2D, "Subtitulada", "Jueves 21:00"),
-  new Pelicula("La casa Gucci", valor2D, "Subtitulada", "Viernes 21:00"),
-  new Pelicula("La casa Gucci", valor2D, "Subtitulada", "Sabado 21:00"),
-  new Pelicula("La casa Gucci", valor2D, "Subtitulada", "Domingo 18:00"),
-  new Pelicula("Sing 2", valor2D, "Doblada", "Martes 19:00"),
-  new Pelicula("Sing 2", valor2D, "Doblada", "Jueves 19:00"),
-  new Pelicula("Sing 2", valor2D, "Doblada", "Viernes 17:00"),
-  new Pelicula("Belle", valor2D, "Doblada", "Lunes 17:00"),
-  new Pelicula("Belle", valor2D, "Subtitulada", "Miércoles 20:00"),
-  new Pelicula("Belle", valor2D, "Doblada", "Viernes 20:00"),
-  new Pelicula("Boda negra", valor2D, "Subtitulada", "Jueves 23:00"),
-  new Pelicula("Boda negra", valor2D, "Subtitulada", "Viernes 23:00"),
-  new Pelicula("El Padrino", valor2D, "Subtitulada", "Jueves 14:00"),
-  new Pelicula("El Padrino", valor2D, "Subtitulada", "Viernes 22:00"),
-  new Pelicula("El Padrino", valor2D, "Subtitulada", "Domingo 21:00"),
-  new Pelicula("El Padrino II", valor2D, "Subtitulada", "Jueves 18:00"),
-  new Pelicula("El Padrino II", valor2D, "Subtitulada", "Sabado 22:00"),
-  new Pelicula("El Padrino II", valor2D, "Subtitulada", "Domingo 20:00"),
-  new Pelicula("El Padrino III", valor2D, "Subtitulada", "Jueves 22:00"),
-  new Pelicula("El Padrino III", valor2D, "Subtitulada", "Domingo 22:00"),
-  new Pelicula("Matrix", valor2D, "Subtitulada", "Miércoles 20:00"),
-  new Pelicula("Matrix", valor2D, "Doblada", "Jueves 22:00"),
-  new Pelicula("Matrix", valor2D, "Doblada", "Viernes 20:00"),
-  new Pelicula("Matrix", valor3D, "Subtitulada", "Viernes 23:00"),
-  new Pelicula("Matrix", valor4D, "Subtitulada", "Sabado 21:00"),
-  new Pelicula("Spiderman", valor2D, "Doblada", "Lunes 19:00"),
-  new Pelicula("Spiderman", valor2D, "Subtitulada", "Miércoles 20:00"),
-  new Pelicula("Spiderman", valor3D, "Doblada", "Jueves 18:00"),
-  new Pelicula("Spiderman", valor2D, "Subtitulada", "Viernes 19:00"),
-  new Pelicula("Spiderman", valor2D, "Doblada", "Sabado 16:00"),
-  new Pelicula("Spiderman", valor3D, "Subtitulada", "Sabado 22:00"),
-  new Pelicula("Spiderman", valor3D, "Doblada", "Domingo 14:00"),
-  new Pelicula("Spiderman", valor4D, "Doblada", "Domingo 19:00"),
+  new Pelicula(
+    "Encanto",
+    700,
+    "2D",
+    "Doblada",
+    "Miércoles 19:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
+  ),
+  new Pelicula(
+    "Encanto",
+    800,
+    "3D",
+    "Doblada",
+    "Jueves 14:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
+  ),
+  new Pelicula(
+    "Encanto",
+    700,
+    "2D",
+    "Doblada",
+    "Viernes 19:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
+  ),
+  new Pelicula(
+    "Encanto",
+    700,
+    "2D",
+    "Doblada",
+    "Sabado 14:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
+  ),
+  new Pelicula(
+    "Encanto",
+    800,
+    "3D",
+    "Doblada",
+    "Domingo 14:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
+  ),
+  new Pelicula(
+    "Encanto",
+    700,
+    "2D",
+    "Doblada",
+    "Domingo 19:00",
+    "tt2953050",
+    "images/cartelera/encanto.jpg"
+  ),
+  new Pelicula(
+    "Scream 5",
+    700,
+    "2D",
+    "Subtitulada",
+    "Jueves 22:00",
+    "tt11245972",
+    "images/cartelera/scream.jpg"
+  ),
+  new Pelicula(
+    "Scream 5",
+    700,
+    "2D",
+    "Doblada",
+    "Viernes 21:00",
+    "tt11245972",
+    "images/cartelera/scream.jpg"
+  ),
+  new Pelicula(
+    "Scream 5",
+    700,
+    "2D",
+    "Doblada",
+    "Sabado 20:00",
+    "tt11245972",
+    "images/cartelera/scream.jpg"
+  ),
+  new Pelicula(
+    "Scream 5",
+    700,
+    "2D",
+    "Subtitulada",
+    "Sabado 23:00",
+    "tt11245972",
+    "images/cartelera/scream.jpg"
+  ),
+  new Pelicula(
+    "La casa Gucci",
+    700,
+    "2D",
+    "Subtitulada",
+    "Martes 19:00",
+    "tt11214590",
+    "images/cartelera/gucci.jpg"
+  ),
+  new Pelicula(
+    "La casa Gucci",
+    700,
+    "2D",
+    "Subtitulada",
+    "Jueves 21:00",
+    "tt11214590",
+    "images/cartelera/gucci.jpg"
+  ),
+  new Pelicula(
+    "La casa Gucci",
+    700,
+    "2D",
+    "Subtitulada",
+    "Viernes 21:00",
+    "tt11214590",
+    "images/cartelera/gucci.jpg"
+  ),
+  new Pelicula(
+    "La casa Gucci",
+    700,
+    "2D",
+    "Subtitulada",
+    "Sabado 21:00",
+    "tt11214590",
+    "images/cartelera/gucci.jpg"
+  ),
+  new Pelicula(
+    "La casa Gucci",
+    700,
+    "2D",
+    "Subtitulada",
+    "Domingo 18:00",
+    "tt11214590",
+    "images/cartelera/gucci.jpg"
+  ),
+  new Pelicula(
+    "Sing 2",
+    700,
+    "2D",
+    "Doblada",
+    "Martes 19:00",
+    "tt6467266",
+    "images/cartelera/sing.jpg"
+  ),
+  new Pelicula(
+    "Sing 2",
+    700,
+    "2D",
+    "Doblada",
+    "Jueves 19:00",
+    "tt6467266",
+    "images/cartelera/sing.jpg"
+  ),
+  new Pelicula(
+    "Sing 2",
+    700,
+    "2D",
+    "Doblada",
+    "Viernes 17:00",
+    "tt6467266",
+    "images/cartelera/sing.jpg"
+  ),
+  new Pelicula(
+    "Belle",
+    700,
+    "2D",
+    "Doblada",
+    "Lunes 17:00",
+    "tt13651628",
+    "images/cartelera/belle.jpg"
+  ),
+  new Pelicula(
+    "Belle",
+    700,
+    "2D",
+    "Subtitulada",
+    "Miércoles 20:00",
+    "tt13651628",
+    "images/cartelera/belle.jpg"
+  ),
+  new Pelicula(
+    "Belle",
+    700,
+    "2D",
+    "Doblada",
+    "Viernes 20:00",
+    "tt13651628",
+    "images/cartelera/belle.jpg"
+  ),
+  new Pelicula(
+    "Boda negra",
+    700,
+    "2D",
+    "Subtitulada",
+    "Jueves 23:00",
+    "tt12057168",
+    "images/cartelera/boda.jpg"
+  ),
+  new Pelicula(
+    "Boda negra",
+    700,
+    "2D",
+    "Subtitulada",
+    "Viernes 23:00",
+    "tt12057168",
+    "images/cartelera/boda.jpg"
+  ),
+  new Pelicula(
+    "El Padrino",
+    700,
+    "2D",
+    "Subtitulada",
+    "Jueves 14:00",
+    "tt0068646",
+    "images/cartelera/g1.png"
+  ),
+  new Pelicula(
+    "El Padrino",
+    700,
+    "2D",
+    "Subtitulada",
+    "Viernes 22:00",
+    "tt0068646",
+    "images/cartelera/g1.png"
+  ),
+  new Pelicula(
+    "El Padrino",
+    700,
+    "2D",
+    "Subtitulada",
+    "Domingo 21:00",
+    "tt0068646",
+    "images/cartelera/g1.png"
+  ),
+  new Pelicula(
+    "El Padrino II",
+    700,
+    "2D",
+    "Subtitulada",
+    "Jueves 18:00",
+    "tt0071562",
+    "images/cartelera/g2.png"
+  ),
+  new Pelicula(
+    "El Padrino II",
+    700,
+    "2D",
+    "Subtitulada",
+    "Sabado 22:00",
+    "tt0071562",
+    "images/cartelera/g2.png"
+  ),
+  new Pelicula(
+    "El Padrino II",
+    700,
+    "2D",
+    "Subtitulada",
+    "Domingo 20:00",
+    "tt0071562",
+    "images/cartelera/g2.png"
+  ),
+  new Pelicula(
+    "El Padrino III",
+    700,
+    "2D",
+    "Subtitulada",
+    "Jueves 22:00",
+    "tt0099674",
+    "images/cartelera/g3.png"
+  ),
+  new Pelicula(
+    "El Padrino III",
+    700,
+    "2D",
+    "Subtitulada",
+    "Domingo 22:00",
+    "tt0099674",
+    "images/cartelera/g3.png"
+  ),
+  new Pelicula(
+    "Matrix Resurrecciones",
+    700,
+    "2D",
+    "Subtitulada",
+    "Miércoles 20:00",
+    "tt10838180",
+    "images/cartelera/matrix.jpg"
+  ),
+  new Pelicula(
+    "Matrix Resurrecciones",
+    700,
+    "2D",
+    "Doblada",
+    "Jueves 22:00",
+    "tt10838180",
+    "images/cartelera/matrix.jpg"
+  ),
+  new Pelicula(
+    "Matrix Resurrecciones",
+    700,
+    "2D",
+    "Doblada",
+    "Viernes 20:00",
+    "tt10838180",
+    "images/cartelera/matrix.jpg"
+  ),
+  new Pelicula(
+    "Matrix Resurrecciones",
+    800,
+    "3D",
+    "Subtitulada",
+    "Viernes 23:00",
+    "tt10838180",
+    "images/cartelera/matrix.jpg"
+  ),
+  new Pelicula(
+    "Matrix Resurrecciones",
+    1000,
+    "4D",
+    "Subtitulada",
+    "Sabado 21:00",
+    "tt10838180",
+    "images/cartelera/matrix.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    700,
+    "2D",
+    "Doblada",
+    "Lunes 19:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    700,
+    "2D",
+    "Subtitulada",
+    "Miércoles 20:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    800,
+    "3D",
+    "Doblada",
+    "Jueves 18:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    700,
+    "2D",
+    "Subtitulada",
+    "Viernes 19:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    1000,
+    "4D",
+    "Doblada",
+    "Sabado 16:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    800,
+    "3D",
+    "Subtitulada",
+    "Sabado 22:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    800,
+    "3D",
+    "Doblada",
+    "Domingo 14:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
+  new Pelicula(
+    "Spiderman: sin camino a casa",
+    700,
+    "2D",
+    "Doblada",
+    "Domingo 19:00",
+    "tt10872600",
+    "images/cartelera/spiderman.jpg"
+  ),
 ];
 
-// OBJETO CANDY
+//////////////////// ARRAY PARA PELÍCULAS ÚNICAS (Sin distinción por funciones o precios)
 
-class Candy {
-  constructor(nombre, precio, id) {
-    this.nombre = nombre;
-    this.precio = precio;
-    this.id = id;
+let setObj = new Set();
+let peliUnica = peliculas.reduce((acc, peli) => {
+  if (!setObj.has(peli.nombre)) {
+    setObj.add(peli.nombre, peli);
+    acc.push(peli);
   }
-}
-
-let comboIndividual = new Candy("Combo Individual", 600, 1);
-let comboNachos = new Candy("Combo Nachos", 750, 2);
-let comboPareja = new Candy("Combo Pareja", 1100, 3);
-let papas = new Candy("Papas fritas", 300, 4);
-let sugus = new Candy("Sugus confitados", 150, 5);
-
-candy.push(comboIndividual);
-candy.push(comboNachos);
-candy.push(comboPareja);
-candy.push(papas);
-candy.push(sugus);
+  return acc;
+}, []);

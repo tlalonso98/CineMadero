@@ -11121,7 +11121,7 @@ textarea.form-control-lg {
 }
 /*BODY*/
 body {
-  background-image: url(images/background/fondo.jpg);
+  background-image: url(../images/background/fondo.jpg);
   background-attachment: fixed;
 }
 
@@ -11201,22 +11201,20 @@ footer {
   width: 100%;
 }
 
-.tarjetas div {
-  margin: 1rem 0;
+.oculto {
+  opacity: 0;
+  visibility: hidden;
 }
-.tarjetas div img {
-  width: 100%;
-  border: solid 0.5px grey;
-  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+
+.oculto:hover {
+  opacity: 1;
+  visibility: hidden;
 }
-.tarjetas div h2, .tarjetas div .h2 {
+
+#carrito {
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  color: white;
-  padding: 0.25rem 0;
-  margin: 0.5rem 0;
-  background-color: black;
-  border: solid 0.5px grey;
-  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */

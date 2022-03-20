@@ -1,155 +1,152 @@
-////////////////////// VARIABLES GLOBALES
+////////////////////// VARIABLES Y ARRAYS GLOBALES
 let subtotal = 0;
+let peliculaSeleccionada = "";
+let funcionesDisponibles = [];
+let funcionSeleccionada = "";
+let comestibles = [];
 
-let peliculaSeleccionada = [];
-let seleccionarPelicula = "";
-let funcionElegida = "";
+////////////////////// RECUPERAR VALORES DE LA DATABASE Y ENVIAR A UN ARRAY
+fetch("/data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((candy) => {
+      comestibles.push(candy);
+    });
+  });
 
-// MANTENER CARRITO EN LOCAL STORAGE
+////////////////////// MANTENER CARRITO EN LOCAL STORAGE
 function guardarCarrito() {
   localStorage.setItem("carritoGuardado", JSON.stringify(carrito));
 }
 
-//////////////////// SELECCIONAR PELÍCULA (Evento HTML)
-function elegirPelicula() {
-  //peliculaSeleccionada.splice(0, 5); //no funciona de ninguna de las dos maneras
-  //peliculaSeleccionada = []; //no se como vaciar este array o evitar que filter cree uno nuevo
-  let hacerBreak = false;
-  peliculaSeleccionada = [];
-  document.getElementById("seleccionarFuncion").innerHTML = "";
-  let seleccionarPelicula = document.getElementById(
-    "seleccionarPelicula"
-  ).value;
+////////////////////// CARGAR OPCIONES PARA EL SELECT DE PELÍCULAS
+function cargarPeliculas() {
+  for (let i = 0; i < peliUnica.length; i++) {
+    document.getElementById("formPeliculas").innerHTML =
+      document.getElementById("formPeliculas").innerHTML +
+      `<option class="opcionesPelicula" value="${i}">${peliUnica[i].nombre}</option>`;
+  }
+}
+
+////////////////////// CARGAR OPCIONES PARA EL SELECT DE FUNCIONES
+function cargarFunciones() {
+  for (let i = 0; i < funcionesDisponibles.length; i++) {
+    document.getElementById("formFunciones").innerHTML =
+      document.getElementById("formFunciones").innerHTML +
+      `<option class="opcionesFuncion" value="${i}">${funcionesDisponibles[i].funcion} (${funcionesDisponibles[i].idioma} - ${funcionesDisponibles[i].sala})</option>`;
+  }
+}
+
+////////////////////// RECUPERAR PELÍCULA SELECCIONADA POR EL USUARIO (EVENTO ONCHANGE)
+function recuperarPelicula() {
+  // Reinicio de valores
+  funcionesDisponibles = [];
+  document.getElementById("formFunciones").innerHTML = "";
+  // Recuperamos la película elegida por el usuario
+  let selectPeli = document.getElementById("formPeliculas");
+  peliculaSeleccionada =
+    document.getElementsByClassName("opcionesPelicula")[selectPeli.value]
+      .innerHTML;
+  // Filtramos las funciones de esa película en un array
   for (let i = 0; i < peliculas.length; i++) {
-    if (seleccionarPelicula == peliculas[i].nombre) {
-      peliculaSeleccionada = peliculas.filter(
-        (pelicula) => pelicula.nombre == seleccionarPelicula
-      );
-      for (const pelicula of peliculaSeleccionada) {
-        document.getElementById("seleccionarFuncion").innerHTML =
-          document.getElementById("seleccionarFuncion").innerHTML +
-          `<option>${pelicula.funcion}</option>`;
-      }
-      hacerBreak = true;
-      break;
-    }
+    funcionesDisponibles = peliculas.filter(
+      (pelicula) => pelicula.nombre == peliculaSeleccionada
+    );
   }
-  if (hacerBreak == false) {
-    Toastify({
-      text: "La película seleccionada no se encuentra disponible.",
-      style: {
-        background: "darkred",
-      },
-      duration: 3000,
-      offset: {
-        x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-    }).showToast();
-  }
-  return peliculaSeleccionada;
+  // Las funciones de la película elegida se cargan en un form select
+  cargarFunciones();
 }
 
-////////////////////// SELECCIONAR FUNCIÓN + MOSTRAR COMESTIBLES (Ejecutable con evento en HTML)
-function elegirFuncion() {
-  let seleccionarFuncion = document.getElementById("seleccionarFuncion").value;
-  funcionElegida = peliculaSeleccionada.find(
-    (pelicula) => pelicula.funcion == seleccionarFuncion
-  );
-  if (funcionElegida == undefined) {
-    Toastify({
-      text: "La función no se encuentra disponible.",
-      style: {
-        background: "darkred",
-      },
-      duration: 3000,
-      offset: {
-        x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-    }).showToast();
-  } else {
-    if (!carrito[0]?.id) {
-      carrito.shift();
-    }
-    carrito = [funcionElegida, ...carrito];
-    Toastify({
-      text:
-        "Seleccionaste la función de " +
-        funcionElegida.nombre +
-        " para el " +
-        funcionElegida.funcion +
-        ". ¡Acompáñalo con los productos de nuestra tienda!",
-      style: {
-        background: "green",
-      },
-      duration: 3000,
-      offset: {
-        x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-    }).showToast();
-    mostrarCandy();
+////////////////////// RECUPERAR FUNCIÓN SELECCIONADA Y AGREGARLA AL CARRITO (EVENTO ONCLICK)
+function recuperarFuncion() {
+  // Recuperamos la función elegida por el usuario y su valor
+  selectFuncion =
+    document.getElementsByClassName("opcionesFuncion")[
+      document.getElementById("formFunciones").value
+    ];
+  selectFuncion2 = selectFuncion.getAttribute("value");
+  // Declaramos el objeto específico de la película-función
+  let funcionSeleccionada = funcionesDisponibles[selectFuncion2];
+  // Reiniciamos el primer valor del carrito en caso de que sea una película
+  if (!carrito[0]?.id) {
+    carrito.shift();
   }
-}
-
-////////////////////// AGREGAR COMESTIBLES AL CARRITO. Supongo que hay manera de hacer de manera más automáticas (la misma función para cada producto sin repetir) pero no se me ocurrió cómo.
-function agregarCandy(i) {
-  carrito.push(candy[i]);
+  // Cargamos la película en el primer lugar del carrito
+  carrito = [funcionSeleccionada, ...carrito];
   sumarCarrito();
+  guardarCarrito();
+  mostrarCarrito();
+  // Mensaje de confirmación y habilitar tienda de comestibles
+  Toastify({
+    text:
+      "Seleccionaste la función de '" +
+      funcionSeleccionada.nombre +
+      "' para el " +
+      funcionSeleccionada.funcion,
+    style: { background: "green" },
+    duration: 4000,
+    offset: { x: 10, y: 60 },
+  }).showToast();
+  mostrarCandy();
 }
 
-////////////////////// MOSTRAR PRODUCTOS DEL CARRITO EN EL DOCUMENTO
-function mostrarCarrito() {
-  document.getElementById("carrito").innerHTML = "";
-  for (const producto of carrito) {
-    document.getElementById("carrito").innerHTML =
-      document.getElementById("carrito").innerHTML +
-      `<h6>${producto.nombre}</h6>
-    <p>  Precio: $${producto.precio}</p>`;
-  }
-
-  document.getElementById("carrito").innerHTML =
-    document.getElementById("carrito").innerHTML +
-    `<h4>Subtotal: $${subtotal}</h4>`;
-
-  document.getElementById("vaciarCarrito").innerHTML = `<button
-    onclick="vaciarCarrito()"
-    type="button"
-    class="btn btn-danger border-light px-5 mb-3 shadow"
-    value="Vaciar"
-  >
-    Vaciar carrito
-  </button>`;
+//////////////////// AGREGAR COMESTIBLES AL CARRITO (EVENTO ONLICK)
+function agregarCandy(candySeleccionado) {
+  carrito.push(comestibles[candySeleccionado]);
+  sumarCarrito();
+  guardarCarrito();
+  mostrarCarrito();
 }
 
-////////////////////// SUMAR CARRITO (Evento HTML)
+//////////////////// SUMAR CARRITO (SE ACTIVA CUANDO AGREGAMOS ALGO)
 function sumarCarrito() {
   subtotal = 0;
   for (let i = 0; i < carrito.length; i++) {
     subtotal = subtotal + carrito[i].precio;
   }
-  mostrarCarrito();
-  guardarCarrito();
-  //  return subtotal;
+  return subtotal;
 }
 
-////////////////////// REVISAR SI HAY COSAS EN EL CARRITO Y MOSTRARLAS AL USUARIO
-if (localStorage.getItem("carritoGuardado")) {
-  let carritoRecuperado = JSON.parse(localStorage.getItem("carritoGuardado"));
-
-  for (let i = 0; i < carritoRecuperado.length; i++) {
-    carrito.push(carritoRecuperado[i]);
+//////////////////// ELIMINAR PRODUCTOS DEL CARRITO (EVENTO ONCLICK)
+function eliminarProducto(posicionProducto) {
+  if (posicionProducto == 0) {
+    Toastify({
+      text: "Para continuar con la compra, debe haber una película seleccionada.",
+      style: { background: "darkred" },
+    }).showToast();
+  } else {
+    subtotal = subtotal - carrito[posicionProducto].precio;
+    carrito.splice(posicionProducto, 1);
+    guardarCarrito();
+    mostrarCarrito();
   }
-  mostrarCandy();
-  sumarCarrito();
 }
 
-////////////////////// VACIAR CARRITO
+//////////////////// VACIAR LOS PRODUCTOS DEL CARRITO EXCEPTO LA PELÍCULA (EVENTO ONCLICK)
 function vaciarCarrito() {
-  carrito = [];
-  guardarCarrito();
+  carrito.splice(1);
   sumarCarrito();
-  document.getElementById("carrito").innerHTML = "";
-  document.getElementById("vaciarCarrito").innerHTML = "";
+  guardarCarrito();
+  mostrarCarrito();
 }
+
+//////////////////// REVISAR SI HAY COSAS EN EL CARRITO Y MOSTRARLAS AL USUARIO
+function comprobarStorage() {
+  if (localStorage.getItem("carritoGuardado")) {
+    let carritoRecuperado = JSON.parse(localStorage.getItem("carritoGuardado"));
+
+    for (let i = 0; i < carritoRecuperado.length; i++) {
+      carrito.push(carritoRecuperado[i]);
+    }
+    mostrarCandy();
+    sumarCarrito();
+    guardarCarrito();
+    mostrarCarrito();
+  }
+}
+
+//////////////////// EJECUCIÓN DE FUNCIONES
+comprobarStorage(); // Comprobamos si el usuario ingresó previamente
+cargarPeliculas(); // Se carga automáticamente
+recuperarPelicula(); // Se carga por primera vez y luego se reitera mediante evento
+guardarCarrito(); // Guardamos lo hecho por el usuario en Local Storage

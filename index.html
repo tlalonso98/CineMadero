@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-----HEAD----->
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--TÍTULO-->
+    <!-----TÍTULO----->
     <title>Cine Madero</title>
-    <!--FAV ICON-->
+    <!-----FAV ICON----->
     <link
       rel="shortcut icon"
       href="images/logos/favicon.svg"
       type="image/x-icon"
     />
-    <!--SEO-->
+    <!-----SEO----->
     <meta
       name="description"
       content="Te ofrecemos la mejor calidad, comodidad y variedad de opciones para que puedas disfrutar en las mejores salas del país. ¡Vení a mirar desde películas clásicas hasta los últimos estrenos!"
@@ -22,27 +23,31 @@
       content="cine, películas, film, estrenos, entradas, clásicos, festivales, 3d, imax, cartelera, promociones, pochoclos, hollywood"
     />
     <meta name="robots" content="index,follow" />
-    <!--FONT AWESOME-->
+    <!-----BOOTSTRAP----->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-----CSS FONT AWESOME----->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <!--LUXON-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
-    <!--CSS TOASTIFY-->
+    <!-----TOASTIFY----->
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <!--CSS-->
+    <!-----CSS----->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
+  <!-----BODY----->
   <body class="bg-dark">
-    <!--HEADER-->
+    <!-----HEADER----->
     <header>
       <nav class="navbar navbar-expand-md navbar-dark shadow fixed-top">
         <div class="container">
@@ -85,9 +90,9 @@
         </div>
       </nav>
     </header>
-
+    <!-----MAIN----->
     <main>
-      <!--CARRUSEL DESTACADOS-->
+      <!-----CARRUSEL DESTACADOS----->
       <section class="container destacados">
         <div
           id="carousel1"
@@ -171,118 +176,51 @@
             <span class="visually-hidden">Siguiente</span>
           </button>
         </div>
-        <div class="text-center text-light">
-          <p>¡Volviste! Olvidaste algunas cosas en el carrito</p>
-        </div>
       </section>
-
-      <!--CARTELERA-->
-      <section class="container text-center" id="cartelera">
+      <!-----CARTELERA----->
+      <section class="container text-center">
         <h1 class="titulo text-light text-uppercase">Cartelera</h1>
-        <div class="row align-items-center tarjetas">
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/encanto.jpg" alt="Encanto" />
-            <h2 class="h6">Encanto</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/scream.jpg" alt="Scream 5" />
-            <h2 class="h6">Scream 5</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/gucci.jpg" alt="La casa Gucci" />
-            <h2 class="h6">La casa Gucci</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/sing.jpg" alt="Sing 2" />
-            <h2 class="h6">Sing 2</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/belle.jpg" alt="Belle" />
-            <h2 class="h6">Belle</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/boda.jpg" alt="Boda negra" />
-            <h2 class="h6">Boda negra</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/g1.png" alt="El padrino" />
-            <h2 class="h6">El Padrino</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/g2.png" alt="El padrino II" />
-            <h2 class="h6">El Padrino II</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img src="images/cartelera/g3.png" alt="El padrino III" />
-            <h2 class="h6">El Padrino III</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img
-              src="images/cartelera/matrix.jpg"
-              alt="Matrix Resurrecciones"
-            />
-            <h2 class="h6">Matrix Resurrecciones</h2>
-          </div>
-          <div class="col-xxl-3 col-lg-4 col-sm-6">
-            <img
-              src="images/cartelera/spiderman.jpg"
-              alt="Spiderman: sin camino a casa"
-            />
-            <h2 class="h6">Spiderman: sin camino a casa</h2>
-          </div>
-        </div>
+        <div id="cartelera" class="row align-items-center tarjetas"></div>
+        <!--Agregado automáticamente mediante dom.js-->
       </section>
-
-      <!--PROCESO DE COMPRA-->
+      <!-----PROCESO DE SELECCIÓN----->
       <section class="container text-center">
         <h2 class="titulo text-light text-uppercase">Realice su compra</h2>
         <div class="formulario text-white mt-4 border p-3 rounded-5">
           <!--Seleccionar película-->
-          <div>
-            <div class="w-50 form-floating my-4 m-auto">
-              <input
-                id="seleccionarPelicula"
-                type="text"
-                class="form-control bg-dark text-light"
-                placeholder="Película"
-                required
-              />
-              <label for="floatingInput">Seleccione la película</label>
-            </div>
-            <button
-              onclick="elegirPelicula()"
-              type="button"
-              class="btn btn-dark border-light px-5 shadow"
-            >
-              Seleccionar
-            </button>
-          </div>
-          <!--Seleccionar función-->
-          <div class="w-50 m-auto">
+          <form action="feeding" method="post" class="col-lg-5 col-sm-6 m-auto">
             <select
-              id="seleccionarFuncion"
+              onchange="recuperarPelicula()"
+              id="formPeliculas"
               class="form-select bg-dark my-4 py-3 text-light"
-              placeholder="Función"
               required
             ></select>
+            <!--Seleccionar función-->
+            <select
+              onchange=""
+              id="formFunciones"
+              class="form-select bg-dark my-4 py-3 text-light"
+              required
+            ></select>
+            <!--Confirmar-->
             <button
-              onclick="elegirFuncion()"
+              onclick="recuperarFuncion()"
               type="button"
               class="btn btn-dark border-light px-5 shadow"
               value="Aceptar"
             >
               Seleccionar
             </button>
-          </div>
+          </form>
         </div>
       </section>
-
-      <!--CANDY (Se carga por JS una vez seleccionada la función)-->
-      <section class="container text-center" id="candy"></section>
+      <!-----CANDY----->
+      <section class="container text-center" id="candy">
+        <!--(Se carga por JS una vez seleccionada la función)-->
+      </section>
       <!--CARRITO-->
-      <section class="container text-center">
+      <section class="py-4 container text-center">
         <div id="carrito"></div>
-        <div id="vaciarCarrito"></div>
       </section>
     </main>
     <!--FOOTER-->
@@ -306,18 +244,15 @@
         </p>
       </div>
     </footer>
-    <!--JavaScript Bundle with Popper-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+    <!--BOOTSTRAP-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!--SCRIPT TOASTIFY-->
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!--JAVASCRIPT-->
     <script type="text/javascript" src="toastify.js"></script>
-    <script type="text/javascript" src="funcionesSecundarias.js"></script>
     <script type="text/javascript" src="arrays.js"></script>
+    <script type="text/javascript" src="dom.js"></script>
+    <script type="text/javascript" src="funcionesSecundarias.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
