@@ -4,6 +4,7 @@ let peliculaSeleccionada = "";
 let funcionesDisponibles = [];
 let funcionSeleccionada = "";
 let comestibles = [];
+let usuarioPremium = true;
 
 ////////////////////// RECUPERAR VALORES DE LA DATABASE Y ENVIAR A UN ARRAY
 fetch("/data.json")
@@ -76,6 +77,7 @@ function recuperarFuncion() {
   sumarCarrito();
   guardarCarrito();
   mostrarCarrito();
+  mostrarCandy();
   // Mensaje de confirmación y habilitar tienda de comestibles
   Toastify({
     text:
@@ -87,7 +89,6 @@ function recuperarFuncion() {
     duration: 4000,
     offset: { x: 10, y: 60 },
   }).showToast();
-  mostrarCandy();
 }
 
 //////////////////// AGREGAR COMESTIBLES AL CARRITO (EVENTO ONLICK)
@@ -113,6 +114,8 @@ function eliminarProducto(posicionProducto) {
     Toastify({
       text: "Para continuar con la compra, debe haber una película seleccionada.",
       style: { background: "darkred" },
+      duration: 4000,
+      offset: { x: 10, y: 60 },
     }).showToast();
   } else {
     subtotal = subtotal - carrito[posicionProducto].precio;
@@ -137,15 +140,44 @@ function comprobarStorage() {
     for (let i = 0; i < carritoRecuperado.length; i++) {
       carrito.push(carritoRecuperado[i]);
     }
-    mostrarCandy();
     sumarCarrito();
     guardarCarrito();
     mostrarCarrito();
   }
 }
 
+//////////////////// PROCESAR COMPRA
+function procesarCompra() {
+  let total = 0;
+  if (usuarioPremium == true) {
+    total = subtotal - subtotal * 0.2;
+    Toastify({
+      text:
+        "¡Felicidades! Tu descuento por ser +Madero fue aplicado. El total de tu compra fue de $" +
+        total,
+      style: { background: "green" },
+      duration: 4000,
+      offset: { x: 10, y: 60 },
+    }).showToast();
+  } else {
+    total = subtotal;
+    Toastify({
+      text: "¡Felicidades! El total de tu compra fue de $" + total,
+      style: { background: "green" },
+      duration: 4000,
+      offset: { x: 10, y: 60 },
+    }).showToast();
+  }
+  return total;
+}
+
+//   console.log(
+//     "Total Madero+: $" + aplicarDescuento(subtotal, true, codigoDescuento)
+//   );
+// }
+
 //////////////////// EJECUCIÓN DE FUNCIONES
 comprobarStorage(); // Comprobamos si el usuario ingresó previamente
-cargarPeliculas(); // Se carga automáticamente
+cargarPeliculas(); // Se carga automáticamente la cartelera
 recuperarPelicula(); // Se carga por primera vez y luego se reitera mediante evento
 guardarCarrito(); // Guardamos lo hecho por el usuario en Local Storage

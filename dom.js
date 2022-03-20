@@ -63,13 +63,14 @@ function mostrarCarrito() {
   document.getElementById("carrito").innerHTML =
     document.getElementById("carrito").innerHTML +
     `<div class= "row p-3 border bg-dark border-dark m-0 align-items-center">
-    <div class= "col-9">
-    <h4 class="p-3 text-light">Subtotal: $${subtotal}</h4>
+      <div class= "col-9">
+        <h4 class="p-3 text-light">Total: $${subtotal}</h4>
+      </div>
+      <div class= "col-3">
+        <button onclick="vaciarCarrito()" "type="button" class="my-2 w-50 btn btn-danger border-light shadow" value="Vaciar">Vaciar</button>
+        <button onclick="procesarCompra()" type="button" class="my-2 w-50 btn btn-success border-light shadow" value="Comprar">Comprar</button>
+      </div>
     </div>
-    <div class= "col-3">
-        <button onclick="vaciarCarrito()" "type="button" class="w-50 btn btn-danger border-light shadow" value="Vaciar">Vaciar</button>
-        </div>
-        </div>
     `;
 }
 
