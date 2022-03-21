@@ -5,7 +5,9 @@ let funcionesDisponibles = [];
 let funcionSeleccionada = "";
 let entradasSeleccionadas = 1;
 let comestibles = [];
-let usuarioPremium = true;
+// Simulación de Usuario Premium
+const random = Math.random() < 0.5;
+let usuarioPremium = random;
 
 ////////////////////// RECUPERAR VALORES DE LA DATABASE Y ENVIAR A UN ARRAY
 fetch("/data.json")
@@ -150,6 +152,7 @@ function comprobarStorage() {
     sumarCarrito();
     guardarCarrito();
     mostrarCarrito();
+    mostrarCandy();
   }
 }
 
