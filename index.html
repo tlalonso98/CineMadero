@@ -185,7 +185,7 @@
       </section>
       <!-----PROCESO DE SELECCIÓN----->
       <section class="container text-center">
-        <h2 class="titulo text-light text-uppercase">Realice su compra</h2>
+        <h2 class="titulo text-light text-uppercase my-0">Realice su compra</h2>
         <div class="formulario text-white mt-4 border p-3 rounded-5">
           <!--Seleccionar película-->
           <form action="feeding" method="post" class="col-lg-5 col-sm-6 m-auto">
@@ -196,12 +196,30 @@
               required
             ></select>
             <!--Seleccionar función-->
-            <select
-              onchange=""
-              id="formFunciones"
-              class="form-select bg-dark my-4 py-3 text-light"
-              required
-            ></select>
+            <div>
+              <select
+                id="formFunciones"
+                class="form-select bg-dark my-4 py-3 text-light d-flex"
+                required
+              ></select>
+              <!--Cantidad de entradas (Seis entradas disponibles por usuario)-->
+              <select
+                id="formEntrada"
+                class="form-select bg-dark my-4 py-3 text-light"
+                required
+              >
+                <option class="opcionesEntrada" value="1">Una entrada</option>
+                <option class="opcionesEntrada" value="2">Dos entradas</option>
+                <option class="opcionesEntrada" value="3">Tres entradas</option>
+                <option class="opcionesEntrada" value="4">
+                  Cuatro entradas
+                </option>
+                <option class="opcionesEntrada" value="5">
+                  Cinco entradas
+                </option>
+                <option class="opcionesEntrada" value="6">Seis entradas</option>
+              </select>
+            </div>
             <!--Confirmar-->
             <button
               onclick="recuperarFuncion()"

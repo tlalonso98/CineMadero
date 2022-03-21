@@ -3,6 +3,7 @@ let subtotal = 0;
 let peliculaSeleccionada = "";
 let funcionesDisponibles = [];
 let funcionSeleccionada = "";
+let entradasSeleccionadas = 1;
 let comestibles = [];
 let usuarioPremium = true;
 
@@ -72,6 +73,12 @@ function recuperarFuncion() {
   if (!carrito[0]?.id) {
     carrito.shift();
   }
+  // Recuperamos las entradas elegidas por el usuario
+  selectEntrada =
+    document.getElementsByClassName("opcionesEntrada")[
+      document.getElementById("formEntrada").value - 1
+    ];
+  entradasSeleccionadas = selectEntrada.getAttribute("value");
   // Cargamos la película en el primer lugar del carrito
   carrito = [funcionSeleccionada, ...carrito];
   sumarCarrito();
@@ -101,8 +108,8 @@ function agregarCandy(candySeleccionado) {
 
 //////////////////// SUMAR CARRITO (SE ACTIVA CUANDO AGREGAMOS ALGO)
 function sumarCarrito() {
-  subtotal = 0;
-  for (let i = 0; i < carrito.length; i++) {
+  subtotal = carrito[0].precio * entradasSeleccionadas;
+  for (let i = 1; i < carrito.length; i++) {
     subtotal = subtotal + carrito[i].precio;
   }
   return subtotal;
@@ -150,7 +157,7 @@ function comprobarStorage() {
 function procesarCompra() {
   let total = 0;
   if (usuarioPremium == true) {
-    total = subtotal - subtotal * 0.2;
+    total = subtotal - subtotal * 0.15;
     Toastify({
       text:
         "¡Felicidades! Tu descuento por ser +Madero fue aplicado. El total de tu compra fue de $" +
@@ -170,11 +177,6 @@ function procesarCompra() {
   }
   return total;
 }
-
-//   console.log(
-//     "Total Madero+: $" + aplicarDescuento(subtotal, true, codigoDescuento)
-//   );
-// }
 
 //////////////////// EJECUCIÓN DE FUNCIONES
 comprobarStorage(); // Comprobamos si el usuario ingresó previamente

@@ -39,7 +39,8 @@ function mostrarCarrito() {
   ).innerHTML = `<div class="row p-3 border border-dark m-0 align-items-center">
   <div class= "col-9">
     <h4>${carrito[0].nombre} | ${carrito[0].sala} - ${carrito[0].funcion}</h5>
-    <h6>Precio: $${carrito[0].precio}</h6>
+    <h6>Precio: $${carrito[0].precio} | ${entradasSeleccionadas} entradas</h6>
+    <h6>Precio: $${carrito[0].precio * entradasSeleccionadas}</h6>
   </div>
   <div class= "col-3">
   <button onclick="eliminarProducto(0)" "type="button" class="w-50 btn btn-danger border-dark shadow" value="Eliminar">Eliminar</button>
@@ -65,6 +66,9 @@ function mostrarCarrito() {
     `<div class= "row p-3 border bg-dark border-dark m-0 align-items-center">
       <div class= "col-9">
         <h4 class="p-3 text-light">Total: $${subtotal}</h4>
+        <h4 class="p-3 text-light">¡Si sos usuario <span class="text-warning">+Madero</span> ahorrás $${
+          subtotal * 0.15
+        }!</h4>        
       </div>
       <div class= "col-3">
         <button onclick="vaciarCarrito()" "type="button" class="my-2 w-50 btn btn-danger border-light shadow" value="Vaciar">Vaciar</button>
